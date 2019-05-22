@@ -29,7 +29,7 @@ class SkillsEdit extends Component {
     componentDidMount () {
     const skillId = this.props.match.params.id
 
-    axios.get(`/api/skills/${skillId}`).then(response => {
+    axios.get(`/api/admin/skills/${skillId}`).then(response => {
         let skill = response.data
         let firstLetter = skill.level.charAt(0);
         let otherLetters = skill.level.slice(1)
@@ -67,7 +67,7 @@ class SkillsEdit extends Component {
     skill.append('level', this.state.level.value)
 
 
-    axios.post(`/api/skills/${skillId}`, skill, {
+    axios.post(`/api/admin/skills/${skillId}`, skill, {
         headers: {
         'Content-Type': 'multipart/form-data'
         }

@@ -13,3 +13,4 @@ require('./bootstrap');
  */
 
 require('./components/admin/Admin');
+require('./components/home/Home');

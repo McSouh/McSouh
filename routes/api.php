@@ -17,5 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/projects', 'ProjectsController');
-Route::resource('/skills', 'SkillsController');
+Route::resource('/admin/projects', 'ProjectsController');
+Route::resource('/admin/skills', 'SkillsController');
+
+Route::get('/projects', 'HomeController@projects');
+Route::get('/projects3', 'HomeController@projects3');
+Route::get('/projects/{project}', 'HomeController@project');
+Route::get('/projects/skills/{skill}', 'HomeController@projectsBySkill');
+Route::get('/skills', 'HomeController@skills');
+Route::get('/skills/{project}', 'HomeController@skillsByProject');

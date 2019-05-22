@@ -13,7 +13,7 @@ class Projects extends Component {
     }
 
     componentDidMount () {
-    axios.get('/api/projects').then(response => {
+    axios.get('/api/admin/projects').then(response => {
         this.setState({
         projects: response.data
         })
@@ -26,7 +26,7 @@ class Projects extends Component {
     handleDelete(event, id){
         event.preventDefault();
         const { history } = this.props
-        axios.delete(`/api/projects/${id}`).then(response => {
+        axios.delete(`/api/admin/projects/${id}`).then(response => {
             this.setState(prevState => ({
                 projects: prevState.projects.filter(project => {
                   return project.id !== id

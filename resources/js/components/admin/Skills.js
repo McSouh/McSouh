@@ -12,7 +12,7 @@ class Skills extends Component {
     }
 
     componentDidMount () {
-    axios.get('/api/skills').then(response => {
+    axios.get('/api/admin/skills').then(response => {
         this.setState({
         skills: response.data
         })
@@ -25,7 +25,7 @@ class Skills extends Component {
     handleDelete(event, id){
         event.preventDefault();
         const { history } = this.props
-        axios.delete(`/api/skills/${id}`).then(response => {
+        axios.delete(`/api/admin/skills/${id}`).then(response => {
             this.setState(prevState => ({
                 skills: prevState.skills.filter(skill => {
                   return skill.id !== id

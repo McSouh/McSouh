@@ -46,7 +46,7 @@ class SkillsCreate extends Component {
     skill.append('level', this.state.level.value)
     
 
-    axios.post('/api/skills', skill, {
+    axios.post('/api/admin/skills', skill, {
         headers: {
         'Content-Type': 'multipart/form-data'
         }

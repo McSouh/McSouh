@@ -17,7 +17,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'desc')->with('skills')->get();
+        $projects = Project::orderBy('created_at', 'desc')->get();
 
         return $projects->toJson();
     }

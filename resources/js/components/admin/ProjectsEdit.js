@@ -26,7 +26,7 @@ class ProjectsEdit extends Component {
     componentDidMount () {
     const projectId = this.props.match.params.id
 
-    axios.get(`/api/projects/${projectId}/edit`).then(response => {
+    axios.get(`/api/admin/projects/${projectId}/edit`).then(response => {
         let project = response.data
         let skills = []
         project.skills.forEach(skill => skills.push(String(skill.id)))
@@ -39,7 +39,7 @@ class ProjectsEdit extends Component {
             skills: skills
         })
     })
-    axios.get(`/api/skills`).then(response => {
+    axios.get(`/api/admin/skills`).then(response => {
         let allSkills = response.data
         this.setState({
             allSkills: allSkills,
@@ -89,7 +89,7 @@ class ProjectsEdit extends Component {
     }
 
 
-    axios.post(`/api/projects/${projectId}`, project, {
+    axios.post(`/api/admin/projects/${projectId}`, project, {
         headers: {
         'Content-Type': 'multipart/form-data'
         }

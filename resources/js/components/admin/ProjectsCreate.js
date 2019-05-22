@@ -24,7 +24,7 @@ class ProjectsCreate extends Component {
     }
 
     componentDidMount(){
-        axios.get('/api/skills').then(response => {
+        axios.get('/api/admin/skills').then(response => {
             this.setState({
                 allSkills: response.data
             })
@@ -67,8 +67,7 @@ class ProjectsCreate extends Component {
         project.append('skills', this.state.skills)
     }
     
-
-    axios.post('/api/projects', project, {
+    axios.post('/api/admin/projects', project, {
         headers: {
         'Content-Type': 'multipart/form-data'
         }

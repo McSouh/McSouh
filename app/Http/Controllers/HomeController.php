@@ -2,27 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Skill;
+use App\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function projects()
     {
-        $this->middleware('auth');
-    }
+        $projects = Project::orderBy('created_at', 'desc')->get();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+        return $projects->toJson();
+    }
+    public function projects3()
     {
-        return view('home');
+        $projects = Project::orderBy('created_at', 'desc')->limit(3)->get();
+
+        return $projects->toJson();
+    }
+    public function project($id)
+    {
+        $project = Project::find($id);
+
+
+        return $project->toJson();
+    }
+    public function skills()
+    {
+        $skills = Skill::orderByRaw("FIELD(level, 'basic', 'intermediate', 'advanced', 'expert') desc")->get();
+
+        return $skills->toJson();
+    }
+    public function skillsByProject($id)
+    {
+        $project = Project::find($id);
+        $skills = $project->skills;
+
+        return $skills->toJson();
+    }
+    public function projectsBySkill($id)
+    {
+        $skill = Skill::find($id);
+        $projects = $skill->projects;
+        return $projects->toJson();
     }
 }

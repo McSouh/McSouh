@@ -11,12 +11,12 @@ const Navigation = () => (
     <div className="container-fluid h-100">
         <div className="row h-100">
                 <div style={{ position: 'fixed', height: '100vh'}} className="col-2 bg-dark text-light d-flex flex-column py-4">
-                    <Link to="/" className="mb-4 text-light text-decoration-none">
+                    <a href="/" className="mb-4 text-light text-decoration-none">
                         <h3 className="text-center">McSouh</h3>
-                    </Link>
+                    </a>
                     <Link to='/admin/projects' className='w-100 my-1 btn btn-light'>Projects</Link>
                     <Link to='/admin/skills' className='w-100 my-1 btn btn-light'>Skills</Link>
-                    <Link to="/logout" className="w-100 mt-auto mb-4 btn btn-danger">Logout</Link>
+                    <a href="/logout" className="w-100 mt-auto mb-4 btn btn-danger">Logout</a>
                 </div>
                 <div className="offset-2 col-10 bg-light p-3">
                     <Switch>

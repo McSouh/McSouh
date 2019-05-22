@@ -11,6 +11,8 @@ class Project extends Model
         'title', 'description', 'image', 'github',
     ];
 
+    protected $with = ['skills'];
+
     public function skills()
     {
         return $this->belongsToMany('App\Skill');
